@@ -1,24 +1,22 @@
 %% Select default or custom data
-default = 0;
+default = 1;
 
 if default == 0
 %% Autonomous vehicle data
 AV_number = 1; % number of autonomous vehicles
-N = 5; % Number of vehicles
+N = 6; % Number of vehicles
 CR = 1;  %communication range
-% Default values
-% AV_number = 1; % number of autonomous vehicles
-% N = 20; % Number of vehicles
-% CR = 9;  %communication range
 
 %% Vehicle dynamics data
-L = 100; %ring length
+L = 100*N/5; %ring length
 v_star = 15; %desired velocity
 s_star = L/N; %desired spacing
 accel_min = -5;
 accel_max = 2;
-alpha  = 0.3 + (-0.1 + 0.2.*rand(N,1)); %sensitivity coeff
-beta   = 0.3 + (-0.1 + 0.2.*rand(N,1)); %sensitivity coeff
+alpha  = 1 + (-0.1 + 0.2.*rand(N,1)); %sensitivity coeff
+beta   = 5 + (-0.1 + 0.2.*rand(N,1)); %sensitivity coeff
+%alpha  = 0.3 + (-0.1 + 0.2.*rand(N,1)); %sensitivity coeff
+%beta   = 0.3 + (-0.1 + 0.2.*rand(N,1)); %sensitivity coeff
 v_max  = 30; %max velocity
 s_st   = 5; %spacing parameters
 s_go   = 35 + (-5 + 10.*rand(N,1));
